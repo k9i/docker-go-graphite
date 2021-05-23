@@ -34,7 +34,8 @@ for _srv in $(ls -1 /etc/service); do
 done
 
 # chown logrotate fle (#111)
-chown 0644 /etc/logrotate.d/*
+## chown 0644 /etc/logrotate.d/*
+chown root:root /etc/logrotate.d/*  # fix-logrotate
 
 exec runsvdir -P /etc/service &
 RUNSVDIR=$!

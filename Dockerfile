@@ -105,6 +105,9 @@ RUN \
     /tmp/* \
     /var/cache/apk/*
 
+RUN \
+  sed -i -E 's|^(/var/log/messages .*)|# \1|g' /etc/logrotate.conf
+
 WORKDIR /
 
 VOLUME ["/etc/go-carbon", "/etc/carbonapi", "/var/lib/graphite", "/etc/nginx", "/etc/grafana", "/etc/logrotate.d", "/var/log"]
