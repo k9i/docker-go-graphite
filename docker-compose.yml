@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  go-graphite:
+    build:
+      context: .
+    image: go-graphite
+    ports:
+      - 3005:80       # grafana web ui
+    environment:
+      - TZ=${TZ:-JST-9}
+    #entrypoint: ls -la /etc/logrotate.d
